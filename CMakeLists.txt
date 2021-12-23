@@ -11,8 +11,8 @@ add_definitions(-DSFML_STATIC)
 
 include_directories("image/")
 include_directories("music/")
-include_directories("ext/SFML/include")
-link_directories("ext/SFML/lib")
+include_directories("ext/SFML/include/")
+link_directories("ext/SFML/lib/")
 
 add_executable("${PROJECT_NAME}" Source.cpp
 )
