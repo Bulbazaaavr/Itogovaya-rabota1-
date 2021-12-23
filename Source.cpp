@@ -5,7 +5,7 @@ using namespace sf;
 
 int x = 0;                  //координата x
 int y = 300;                //координата y (появление героя)
-int zvyk = 25;              //громкость(от 0 до 100)
+int zvyk = 15;              //громкость(от 0 до 100)
 float currentFrame = 0;     //номер кадра
 float scor = 0.2;           //скорость передвижения героя
 float scoranim = 0.005;     //скорость анимации героя
@@ -17,8 +17,8 @@ int main()
 	
     //Загрузка 2 картинок
 	Texture pers, fon;
-	pers.loadFromFile("spriteSonic2.png");
-    fon.loadFromFile("fon3.jpg");
+	pers.loadFromFile("image/spriteSonic2.png");
+    fon.loadFromFile("image/fon3.jpg");
     
     //Создание двух спрайтов
     Sprite sPers(pers), sFon(fon);
@@ -28,10 +28,18 @@ int main()
   
     //Подключение звука
     Music music;        
-    music.openFromFile("GreenHill.ogg");
+    music.openFromFile("music/GreenHill.ogg");
     music.play();
     music.setLoop(true);    //Повтор 
     music.setVolume(zvyk);  //Громкость
+
+    //Добавление иконки
+    Image icon;
+    if (!icon.loadFromFile("image/icon.png"))
+    {
+        return 2;
+    }
+    window.setIcon(32, 32, icon.getPixelsPtr());
     
 
     while (window.isOpen())

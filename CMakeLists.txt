@@ -7,8 +7,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
+add_definitions(-DSFML_STATIC)
+
 include_directories("image/")
 include_directories("music/")
+include_directories("ext/SFML/include")
+link_directories("ext/SFML/lib")
 
 add_executable("${PROJECT_NAME}" Source.cpp
 			image/fon3.jpg
@@ -32,6 +36,5 @@ target_link_libraries("${PROJECT_NAME}"
 
 target_link_libraries("${PROJECT_NAME}"  opengl32 freetype winmm gdi32 openal32 flac vorbisenc vorbisfile vorbis ogg)
 
-file (COPY "img" DESTINATION "/")
-file (COPY "fonts" DESTINATION "/")
-file (COPY "sounds" DESTINATION "/")
+file (COPY "image" DESTINATION "/")
+file (COPY "music" DESTINATION "/")
