@@ -15,9 +15,6 @@ include_directories("ext/SFML/include")
 link_directories("ext/SFML/lib")
 
 add_executable("${PROJECT_NAME}" Source.cpp
-			image/fon3.jpg
-			image/spriteSonic2.png
-			music/GreenHill.ogg	
 )
 
 target_link_libraries("${PROJECT_NAME}"  
